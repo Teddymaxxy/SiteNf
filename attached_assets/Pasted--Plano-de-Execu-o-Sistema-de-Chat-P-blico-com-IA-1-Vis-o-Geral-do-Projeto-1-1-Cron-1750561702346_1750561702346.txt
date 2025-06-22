@@ -1,0 +1,343 @@
+# Plano de Execução - Sistema de Chat Público com IA
+
+## 1. Visão Geral do Projeto
+
+### 1.1 Cronograma Total
+**Duração**: 4 semanas (20 dias úteis) - Otimizado com IA
+**Divisão**: 2 fases principais + 1 fase de finalização
+
+### 1.2 Recursos Necessários
+- **Desenvolvedor**: 1 pessoa (full-stack)
+- **Tempo**: 3-4 horas/dia (reduzido devido ao uso de IA)
+- **Orçamento**: Gratuito (usando ferramentas e serviços gratuitos)
+- **Ferramentas IA**: Replit, ChatGPT/Claude, GitHub Copilot
+
+## 2. Setup Inicial (Dia 1 - 4 horas)
+
+### 2.1 Configuração do Ambiente com Replit
+- [ ] Criar projeto no Replit (Node.js + PostgreSQL template)
+- [ ] Configurar repositório Git integrado
+- [ ] Instalar dependências principais via Replit
+
+### 2.2 Configuração Automática com IA
+- [ ] Usar IA para gerar estrutura inicial de pastas
+- [ ] Configurar Prisma com schema fornecido
+- [ ] Setup automático do Express.js via prompts de IA
+- [ ] Configurar Socket.io com assistência de IA
+- [ ] Configurar banco PostgreSQL no Replit
+
+**Comandos para Replit:**
+```bash
+npm init -y
+npm install express socket.io prisma @prisma/client bcryptjs jsonwebtoken cors dotenv
+npx prisma init
+```
+
+**Entregáveis:**
+- Projeto Replit configurado
+- Schema Prisma implementado
+- Estrutura base gerada com IA
+
+## 3. FASE 1 - MVP Acelerado com IA (Semanas 1-2)
+
+### 3.1 Semana 1: Backend Completo com IA
+
+#### Dia 1-2: Implementação do Schema e Autenticação
+**Usando IA para gerar código:**
+- [ ] Implementar schema Prisma (já definido)
+- [ ] Executar migração: `npx prisma migrate dev --name init`
+- [ ] Gerar código de autenticação com IA:
+  - Controllers para User (cadastro, login, logout)
+  - Middleware JWT
+  - Hash de senhas com bcrypt
+  - Rotas de autenticação
+
+**Prompt para IA:**
+> "Crie um sistema de autenticação completo para Node.js + Express usando o schema Prisma fornecido. Inclua cadastro, login, logout, middleware JWT e hash de senhas."
+
+#### Dia 3-4: API de Mensagens e WebSocket
+**Usando IA para acelerar desenvolvimento:**
+- [ ] Gerar controllers para Mensagem
+- [ ] Implementar rotas CRUD para mensagens
+- [ ] Configurar Socket.io com eventos baseados no flowchart:
+  - `connection`: Usuário conecta
+  - `join-chat`: Entrar no chat
+  - `send-message`: Enviar mensagem
+  - `user-typing`: Indicador de digitação
+  - `disconnect`: Usuário desconecta
+
+**Prompt para IA:**
+> "Implemente um sistema de chat em tempo real usando Socket.io baseado no flowchart fornecido. Inclua eventos para mensagens, presença online e indicador de digitação."
+
+#### Dia 5: Lógica de Presença Online
+- [ ] Implementar sistema de usuários online
+- [ ] Atualizar status online/offline automaticamente
+- [ ] Testar toda a API com Postman/Insomnia
+
+**Entregáveis:**
+- Backend completo funcionando
+- API testada e documentada
+- WebSocket implementado
+
+### 3.2 Semana 2: Frontend Completo com IA
+
+#### Dia 1-2: Interface de Autenticação
+**Usando IA para gerar UI:**
+- [ ] Gerar HTML/CSS/JS para telas de login/cadastro
+- [ ] Implementar validações frontend
+- [ ] Integrar com API de autenticação
+- [ ] Implementar feedback visual (loading, erros)
+
+**Prompt para IA:**
+> "Crie uma interface de login/cadastro moderna e responsiva usando HTML, CSS e JavaScript vanilla. Inclua validações, estados de loading e integração com API REST."
+
+#### Dia 3-4: Interface do Chat Principal
+**Seguindo o flowchart UX:**
+- [ ] Gerar layout do chat com IA
+- [ ] Implementar componentes:
+  - Área de mensagens com scroll automático
+  - Campo de entrada de mensagem
+  - Sidebar de usuários online
+  - Indicador de digitação
+- [ ] CSS responsivo gerado com IA
+
+**Prompt para IA:**
+> "Crie uma interface de chat em tempo real moderna usando HTML, CSS e JavaScript. Inclua área de mensagens, lista de usuários online, campo de entrada e design responsivo."
+
+#### Dia 5: Integração WebSocket Frontend
+- [ ] Conectar Socket.io no frontend
+- [ ] Implementar todos os eventos do flowchart
+- [ ] Testar fluxo completo do usuário
+- [ ] Ajustar bugs com assistência de IA
+
+**Entregáveis:**
+- Frontend completo funcionando
+- Integração frontend-backend estabelecida
+- Chat funcionando end-to-end
+
+## 4. FASE 2 - Otimização e Deploy (Semanas 3-4)
+
+### 4.1 Semana 3: Melhorias e Testes com IA
+
+#### Dia 1-2: Implementar Funcionalidades Restantes
+**Baseado nos Requisitos Funcionais:**
+- [ ] RF009: Histórico das últimas 50 mensagens
+- [ ] Timestamps nas mensagens
+- [ ] Validações de mensagens vazias
+- [ ] Melhorar UX com IA (animações, transições)
+
+#### Dia 3-4: Testes Automatizados com IA
+- [ ] Gerar testes unitários com IA
+- [ ] Testes de integração para API
+- [ ] Testes de funcionalidade para WebSocket
+- [ ] Testar todos os fluxos do flowchart
+
+**Prompt para IA:**
+> "Crie testes automatizados para um sistema de chat usando Jest. Inclua testes para autenticação, envio de mensagens, WebSocket e fluxos de usuário."
+
+#### Dia 5: Correções e Otimizações
+- [ ] Corrigir bugs identificados
+- [ ] Otimizar performance com sugestões de IA
+- [ ] Implementar rate limiting básico
+- [ ] Melhorar tratamento de erros
+
+**Entregáveis:**
+- Sistema testado e otimizado
+- Bugs corrigidos
+- Performance melhorada
+
+### 4.2 Semana 4: Deploy e Finalização
+
+#### Dia 1-2: Deploy Automático via Replit
+**Vantagens do Replit:**
+- [ ] Deploy automático já configurado
+- [ ] Banco PostgreSQL integrado
+- [ ] HTTPS automático
+- [ ] Configurar variáveis de ambiente
+- [ ] Testar em produção
+
+#### Dia 3-4: Documentação com IA
+- [ ] Gerar README completo com IA
+- [ ] Documentar API endpoints
+- [ ] Criar guia de instalação
+- [ ] Comentar código com assistência de IA
+
+**Prompt para IA:**
+> "Crie uma documentação completa para um sistema de chat público incluindo README, guia de instalação, documentação da API e exemplos de uso."
+
+#### Dia 5: Testes Finais e Entrega
+- [ ] Verificar todos os requisitos funcionais
+- [ ] Testar com múltiplos usuários
+- [ ] Validar flowchart completo
+- [ ] Preparar demonstração
+
+**Entregáveis:**
+- Sistema completo em produção
+- Documentação completa
+- Projeto finalizado
+
+## 5. Estrutura do Projeto no Replit
+
+```
+chat-publico/
+├── server.js              # Servidor principal
+├── package.json           # Dependências
+├── .env                   # Variáveis de ambiente
+├── prisma/
+│   ├── schema.prisma      # Schema fornecido
+│   └── migrations/        # Migrações do banco
+├── src/
+│   ├── controllers/       # Controllers gerados com IA
+│   │   ├── authController.js
+│   │   ├── messageController.js
+│   │   └── userController.js
+│   ├── middleware/        # Middlewares
+│   │   ├── auth.js
+│   │   └── validation.js
+│   ├── routes/           # Rotas da API
+│   │   ├── auth.js
+│   │   ├── messages.js
+│   │   └── users.js
+│   ├── services/         # Lógica de negócio
+│   │   ├── authService.js
+│   │   └── chatService.js
+│   └── utils/            # Utilitários
+│       └── database.js
+├── public/               # Frontend
+│   ├── index.html        # Página principal
+│   ├── login.html        # Tela de login/cadastro
+│   ├── css/
+│   │   └── style.css     # Estilos gerados com IA
+│   └── js/
+│       ├── auth.js       # Lógica de autenticação
+│       ├── chat.js       # Lógica do chat
+│       └── socket.js     # WebSocket client
+├── tests/                # Testes gerados com IA
+│   ├── auth.test.js
+│   ├── messages.test.js
+│   └── socket.test.js
+└── docs/                 # Documentação
+    ├── API.md
+    └── SETUP.md
+```
+
+## 6. Prompts de IA Específicos por Funcionalidade
+
+### 6.1 Backend - Autenticação
+```
+"Implemente um sistema completo de autenticação JWT para Node.js + Express usando este schema Prisma:
+[inserir schema]
+
+Inclua:
+- Cadastro com validação de email único
+- Login com verificação de senha
+- Middleware de autenticação
+- Hash de senhas com bcrypt
+- Tratamento de erros apropriado"
+```
+
+### 6.2 WebSocket - Chat em Tempo Real
+```
+"Crie um sistema de chat em tempo real usando Socket.io baseado neste flowchart:
+[descrever flowchart]
+
+Implemente eventos para:
+- Conexão/desconexão de usuários
+- Envio de mensagens
+- Atualização de usuários online
+- Indicador de digitação
+- Persistência no banco via Prisma"
+```
+
+### 6.3 Frontend - Interface do Chat
+```
+"Crie uma interface moderna de chat público usando HTML, CSS e JavaScript vanilla:
+
+Requisitos:
+- Layout responsivo para desktop e mobile
+- Área de mensagens com scroll automático
+- Campo de entrada de mensagem
+- Lista de usuários online
+- Indicadores visuais de conexão
+- Design moderno e limpo"
+```
+
+## 7. Checklist de Requisitos com IA
+
+### 7.1 Requisitos Funcionais (baseados no schema Prisma)
+- [ ] RF001: Cadastro (User model com email único)
+- [ ] RF002: Login (validação de senha hash)
+- [ ] RF003: Logout (limpar JWT)
+- [ ] RF004: Chat público (Mensagem model)
+- [ ] RF005: Envio de mensagens (Socket.io)
+- [ ] RF006: Tempo real (WebSocket)
+- [ ] RF007: Nome do usuário (relação User-Mensagem)
+- [ ] RF008: Timestamp (criadoEm no schema)
+- [ ] RF009: Histórico 50 mensagens (query limit)
+- [ ] RF010: Usuários online (status boolean)
+- [ ] RF011: Status automático (WebSocket events)
+
+### 7.2 Fluxo UX (baseado no flowchart)
+- [ ] Verificação de usuário logado
+- [ ] Tela de login/cadastro
+- [ ] Validações de formulário
+- [ ] Redirecionamento após login
+- [ ] Conexão WebSocket
+- [ ] Envio de mensagens
+- [ ] Recebimento em tempo real
+- [ ] Atualização de presença
+- [ ] Logout e desconexão
+
+## 8. Vantagens do Uso de IA
+
+### 8.1 Velocidade de Desenvolvimento
+- **Geração de código**: 60% mais rápido
+- **Correção de bugs**: Diagnóstico assistido
+- **Documentação**: Geração automática
+- **Testes**: Criação automatizada
+
+### 8.2 Qualidade do Código
+- **Padrões**: IA sugere melhores práticas
+- **Segurança**: Identificação de vulnerabilidades
+- **Performance**: Otimizações sugeridas
+- **Manutenibilidade**: Código mais limpo
+
+### 8.3 Replit Específico
+- **Deploy automático**: Sem configuração manual
+- **Banco integrado**: PostgreSQL pré-configurado
+- **Colaboração**: Fácil compartilhamento
+- **Debugging**: Ferramentas integradas
+
+## 9. Cronograma Otimizado
+
+| Semana | Foco | Tempo/Dia | Uso de IA |
+|--------|------|-----------|-----------|
+| 1 | Backend | 3-4h | 70% geração código |
+| 2 | Frontend | 3-4h | 60% UI/UX |
+| 3 | Testes/Otimização | 2-3h | 50% debugging |
+| 4 | Deploy/Docs | 2h | 80% documentação |
+
+## 10. Riscos Mitigados com IA
+
+### 10.1 Riscos Técnicos Reduzidos
+- **Bugs de sintaxe**: IA detecta automaticamente
+- **Padrões incorretos**: Sugestões de melhores práticas
+- **Performance**: Otimizações automáticas
+- **Segurança**: Verificação de vulnerabilidades
+
+### 10.2 Contingências
+- **IA não funciona**: Código base já gerado
+- **Replit instável**: Backup em GitHub
+- **Performance ruim**: Otimizações com IA
+- **Bugs complexos**: Debugging assistido
+
+## 11. Métricas de Sucesso com IA
+
+- ✅ 70% do código gerado com assistência de IA
+- ✅ Desenvolvimento 50% mais rápido que manual
+- ✅ Menos de 10 bugs críticos
+- ✅ Documentação 100% gerada com IA
+- ✅ Deploy automático funcionando
+- ✅ Todos os requisitos funcionais implementados
+- ✅ Flowchart UX completamente seguido
+- ✅ Schema Prisma totalmente utilizado

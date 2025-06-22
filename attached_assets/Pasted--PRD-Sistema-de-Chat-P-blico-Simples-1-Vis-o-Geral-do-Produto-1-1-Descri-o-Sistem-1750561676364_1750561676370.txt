@@ -1,0 +1,136 @@
+# PRD - Sistema de Chat Público Simples
+
+## 1. Visão Geral do Produto
+
+### 1.1 Descrição
+Sistema web simples de chat público que permite comunicação em tempo real entre usuários registrados.
+
+### 1.2 Objetivo
+Criar uma plataforma básica onde usuários podem se cadastrar e conversar em um chat público comum.
+
+### 1.3 Escopo
+Projeto não comercial focado em funcionalidades essenciais de um chat público.
+
+## 2. Requisitos Funcionais Essenciais
+
+### 2.1 Autenticação Básica
+- **RF001**: Sistema deve permitir cadastro com email e senha
+- **RF002**: Sistema deve permitir login com email e senha
+- **RF003**: Sistema deve permitir logout
+
+### 2.2 Chat Público
+- **RF004**: Sistema deve exibir chat público único para todos usuários
+- **RF005**: Usuário deve poder enviar mensagens de texto
+- **RF006**: Sistema deve exibir mensagens em tempo real
+- **RF007**: Sistema deve mostrar nome do usuário que enviou a mensagem
+- **RF008**: Sistema deve exibir timestamp das mensagens
+- **RF009**: Sistema deve manter histórico das últimas 50 mensagens
+
+### 2.3 Presença Básica
+- **RF010**: Sistema deve mostrar lista de usuários online
+- **RF011**: Sistema deve atualizar status online/offline automaticamente
+
+## 3. Requisitos Não Funcionais Básicos
+
+### 3.1 Performance
+- **RNF001**: Sistema deve suportar até 50 usuários simultâneos
+- **RNF002**: Mensagens devem aparecer em tempo real (menos de 1 segundo)
+
+### 3.2 Usabilidade
+- **RNF003**: Interface deve funcionar em desktop e mobile
+- **RNF004**: Sistema deve funcionar nos navegadores principais (Chrome, Firefox, Safari)
+
+### 3.3 Segurança Mínima
+- **RNF005**: Senhas devem ser criptografadas
+- **RNF006**: Sistema deve usar HTTPS
+
+## 4. Stack Tecnológico Simples
+
+### 4.1 Tecnologias Sugeridas
+- **Frontend**: HTML, CSS, JavaScript vanilla ou React básico
+- **Backend**: Node.js com Express.js
+- **Banco de Dados**: SQLite ou PostgreSQL simples
+- **Tempo Real**: Socket.io
+- **Hospedagem**: Heroku, Netlify ou similar gratuito
+
+## 5. Interface do Usuário
+
+### 5.1 Telas Principais
+1. **Tela de Login/Cadastro**: Formulário simples
+2. **Chat Principal**: 
+   - Área de mensagens
+   - Campo para digitar mensagem
+   - Lista de usuários online (sidebar)
+
+### 5.2 Layout Básico
+```
+┌─────────────────────────────────────┐
+│ Chat Público                        │
+├─────────────────────┬───────────────┤
+│ Área de Mensagens   │ Usuários      │
+│                     │ Online        │
+│ João: Olá pessoal!  │ • João        │
+│ Maria: Oi João!     │ • Maria       │
+│                     │ • Pedro       │
+├─────────────────────┴───────────────┤
+│ [Digite sua mensagem...] [Enviar]   │
+└─────────────────────────────────────┘
+```
+
+## 6. Fases de Desenvolvimento
+
+### 6.1 Fase 1 - MVP (4 semanas)
+- Cadastro e login básico
+- Chat público funcional
+- Envio e recebimento de mensagens
+- Interface web simples
+
+### 6.2 Fase 2 - Melhorias (2 semanas)
+- Lista de usuários online
+- Melhorias na interface
+- Responsividade mobile
+- Deploy em produção
+
+## 7. Funcionalidades NÃO Incluídas
+
+Para manter a simplicidade, as seguintes funcionalidades não serão implementadas:
+- Perfis de usuário complexos
+- Mensagens privadas
+- Sistema de moderação avançado
+- Reações/emojis
+- Menções (@usuario)
+- Múltiplas salas de chat
+- Notificações
+- Upload de arquivos/imagens
+
+## 8. Estrutura de Dados Básica
+
+### 8.1 Usuário
+```
+{
+  id: integer,
+  email: string,
+  senha: string (hash),
+  nome: string,
+  online: boolean,
+  criado_em: timestamp
+}
+```
+
+### 8.2 Mensagem
+```
+{
+  id: integer,
+  usuario_id: integer,
+  conteudo: string,
+  criado_em: timestamp
+}
+```
+
+## 9. Critérios de Sucesso Simples
+
+- Chat funciona em tempo real
+- Usuários conseguem se cadastrar e fazer login
+- Mensagens são persistidas e exibidas corretamente
+- Interface é usável em desktop e mobile
+- Sistema funciona com múltiplos usuários simultâneos

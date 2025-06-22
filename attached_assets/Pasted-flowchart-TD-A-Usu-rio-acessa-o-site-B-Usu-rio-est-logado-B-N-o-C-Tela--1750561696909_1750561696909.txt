@@ -1,0 +1,68 @@
+flowchart TD
+    A[Usuário acessa o site] --> B{Usuário está logado?}
+    
+    B -->|Não| C[Tela de Login/Cadastro]
+    B -->|Sim| D[Chat Principal]
+    
+    C --> E{Usuário escolhe ação}
+    E -->|Login| F[Preenche email e senha]
+    E -->|Cadastro| G[Preenche nome, email e senha]
+    
+    F --> H{Credenciais válidas?}
+    H -->|Não| I[Exibe erro de login]
+    H -->|Sim| J[Login realizado com sucesso]
+    I --> C
+    
+    G --> K{Dados válidos?}
+    K -->|Não| L[Exibe erro de cadastro]
+    K -->|Sim| M[Conta criada com sucesso]
+    L --> C
+    
+    J --> D
+    M --> D
+    
+    D --> N[Usuário conectado ao chat]
+    N --> O[Atualiza status para online]
+    O --> P[Carrega últimas 50 mensagens]
+    P --> Q[Exibe lista de usuários online]
+    
+    Q --> R{Usuário quer enviar mensagem?}
+    R -->|Sim| S[Digita mensagem no campo]
+    R -->|Não| T[Usuário visualiza mensagens]
+    
+    S --> U[Clica em Enviar ou pressiona Enter]
+    U --> V{Mensagem não está vazia?}
+    V -->|Não| W[Exibe aviso: mensagem vazia]
+    V -->|Sim| X[Envia mensagem via WebSocket]
+    
+    W --> S
+    X --> Y[Mensagem salva no banco]
+    Y --> Z[Mensagem enviada para todos usuários online]
+    Z --> AA[Mensagem aparece no chat em tempo real]
+    
+    AA --> T
+    T --> AB[Recebe mensagens de outros usuários]
+    AB --> AC[Atualiza lista de usuários online]
+    AC --> R
+    
+    D --> AD{Usuário quer sair?}
+    AD -->|Sim| AE[Clica em Logout]
+    AD -->|Não| R
+    
+    AE --> AF[Atualiza status para offline]
+    AF --> AG[Desconecta WebSocket]
+    AG --> AH[Redireciona para tela de login]
+    AH --> A
+    
+    T --> AI{Usuário fecha navegador/aba?}
+    AI -->|Sim| AJ[Detecta desconexão]
+    AI -->|Não| R
+    
+    AJ --> AK[Atualiza status para offline]
+    AK --> AL[Remove da lista de usuários online]
+    
+    style A fill:#e1f5fe
+    style D fill:#e8f5e8
+    style C fill:#fff3e0
+    style AA fill:#f3e5f5
+    style AH fill:#ffebee
